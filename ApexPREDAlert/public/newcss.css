@@ -1,0 +1,33 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 10, 2019, 7:39:11 PM
+    Author     : AnArChY2122
+*/
+
+
+@media (max-width: 480px) {
+  
+}.img {
+
+    resize: both;
+    align-content: center;
+}
+
+img.mainImage {
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    align-items: center;
+}
+h1.header{
+    height: auto;
+    max-height: 50vh;
+    width: auto;
+    max-width: 100%;
+    align-content: center;
+}

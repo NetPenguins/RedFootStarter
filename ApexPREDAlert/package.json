@@ -1,0 +1,16 @@
+{
+    "name": "ApexPREDAlert",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "AnArChY2122",
+    "contributors": [],
+    "dependencies": {
+        "mongodb": "^3.2.7"
+    }
+}
