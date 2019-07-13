@@ -1,6 +1,8 @@
-FROM node:8.9.3-alpine
+FROM node:10
 RUN mkdir -p /usr/src/app
-COPY ./app/ /usr/src/app/
+COPY ./APEXPREDAlert/ /usr/src/app/
 WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-CMD node /usr/src/app/index.js
+EXPOSE 8080
+CMD ["node", "index.js"]
