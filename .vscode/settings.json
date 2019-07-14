@@ -1,0 +1,5 @@
+{
+    "docker.defaultRegistryPath": "anarch2122",
+    "appService.defaultWebAppToDeploy": "/subscriptions/7efde2f9-dc1c-4089-b686-a5e6a07c9ecf/resourceGroups/APEXAlert/providers/Microsoft.Web/sites/APEXAlertEngine",
+    "appService.deploySubpath": ""
+}
