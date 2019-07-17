@@ -4,18 +4,18 @@ function sortItems(strng){
     var out = '';
     array.forEach(element => {
         ob = {};
-        sortable.push(sumation(element));
+        sortable.push(sum(element));
     });
-    document.writeln(JSON.stringify(sortable));
+    document.write(JSON.stringify(sortable) +"<br>");
     sortable.sort((a , b) => (a.weight < b.weight) ? 1 : -1);
-    document.writeln('Sorting....' + /\n/);
+    document.writeln('Sorting....'  +"<br>");
     sortable.forEach(element =>{
-        out += element.amount + ", ";
+        sortable[sortable.indexOf(element) + 1] === undefined ? (out += element.amount) : (out += element.amount + ", ");
     });
-    document.writeln(out);
+    document.writeln(out  +"<br>");
     return out;
 }
-function sumation(w){
+function sum(w){
     var arr = w.split('');
     var sum = 0;
     arr.forEach(element => {
