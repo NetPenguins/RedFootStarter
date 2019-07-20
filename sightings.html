@@ -43,8 +43,8 @@
         var lt = lat_lng.lat;
         var lg = lat_lng.lng;
         if(!navigator.geolocation) {
-            lt = "";
-            lg = "";
+            lt = 36.7783;
+            lg = 119.4179;
         }
         var mymap = L.map('mapid').setView([lt, lg], 14);
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
