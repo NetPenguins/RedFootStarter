@@ -43,6 +43,7 @@
         var lt = lat_lng.lat;
         var lg = lat_lng.lng;
         if(!navigator.geolocation) {
+            aler("Use of Location is set to off. Using default...");
             lt = 36.7783;
             lg = 119.4179;
         }
