@@ -11,12 +11,15 @@ and open the template in the editor.
 
 @media (max-width: 480px) {
   
-}.img {
-
-    resize: both;
-    align-content: center;
 }
 
+img.img{
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+    align-items: center;
+}
 img.mainImage {
     height: auto;
     max-height: 100%;
@@ -24,10 +27,46 @@ img.mainImage {
     max-width: 100%;
     align-items: center;
 }
-h1.header{
-    height: auto;
-    max-height: 50vh;
-    width: auto;
-    max-width: 100%;
-    align-content: center;
+.in{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-image-outset: 2px;
 }
+.button{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
+    background-color: #333;
+  }
+  
+  li {
+    
+    float: left;
+  }
+  
+  li a {
+    
+    display: block;
+    color: white;
+    align-content: center;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+  #mapid{
+      height: 300px;
+  }
