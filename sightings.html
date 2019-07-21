@@ -6,7 +6,7 @@
 </head>
 <body>
         <div class="mainImage">
-                <img class="mainImage" src="632c0bf2c7c2bd65-APEXLOGO-HORIZ-APEXGREEN-v2.png" alt=""/>
+                <!--<img class="mainImage" src="632c0bf2c7c2bd65-APEXLOGO-HORIZ-APEXGREEN-v2.png" alt=""/>-->
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -16,6 +16,7 @@
             <script type="text/javascript" src="./main.js"></script>
             <script type="text/javascript" src="index.js"></script>
             <h1 class="header" align="center">Recent Sightings Map</h1>
+            <h4 align="center">NOTE: If map is not displayed please enable location services</h4>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -24,7 +25,31 @@
     crossorigin=""></script>
     
     <div id="mapid"></div>
+     
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+
     <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBnXj0CmCIAvbLlZFejIu7n7gFIuFghk80",
+        authDomain: "apexalertengine.firebaseapp.com",
+        databaseURL: "https://apexalertengine.firebaseio.com",
+        projectId: "apexalertengine",
+        storageBucket: "",
+        messagingSenderId: "911972698521",
+        appId: "1:911972698521:web:2fe93fa126f5fde6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    function writeUserData(pred, coord, time) {
+                firebase.database().ref('predators/' + pred).set({
+                    predator: pred,
+                    location: coord,
+                    time: time
+                });
+                
     function getLocation(callback) {
         if (navigator.geolocation) {
             var lat_lng = navigator.geolocation.getCurrentPosition(function(position){
@@ -42,7 +67,7 @@
     getLocation(function(lat_lng){
         var lt = lat_lng.lat;
         var lg = lat_lng.lng;
-        if(!navigator.geolocation) {
+        if(!navigator.geolocation.getCurrentPosition) {
             aler("Use of Location is set to off. Using default...");
             lt = 36.7783;
             lg = 119.4179;
@@ -65,6 +90,8 @@
         cir(lt, lg);
         });
         function cir(lt, lg){
+            var today = new Date();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             var pred = window.prompt("Name of Predator: ", "Example: 'Black Bear'");
             if (pred.trim() === null || pred.trim() === "" || pred.trim() === "Example: 'Black Bear'"){
                 alert('No Predator Input');
@@ -76,9 +103,29 @@
                     radius: 600
                 }).addTo(mymap);
                 circle.bindPopup("Predator Spotted: " + pred);
+                writeUserData(pred, (lt + ", " + lg), (date + " "+ getTimezoneName()));
             }
         }
     });
-    
+    function getTimezoneName() {
+        const today = new Date();
+        const short = today.toLocaleDateString(undefined);
+        const full = today.toLocaleDateString(undefined, { timeZoneName: 'long' });
+
+        // Trying to remove date from the string in a locale-agnostic way
+        const shortIndex = full.indexOf(short);
+        if (shortIndex >= 0) {
+            const trimmed = full.substring(0, shortIndex) + full.substring(shortIndex + short.length);
+            
+            // by this time `trimmed` should be the timezone's name with some punctuation -
+            // trim it from both sides
+            return trimmed.replace(/^[\s,.\-:;]+|[\s,.\-:;]+$/g, '');
+
+        } else {
+            // in some magic case when short representation of date is not present in the long one, just return the long one as a fallback, since it should contain the timezone's name
+            return full;
+        }
+    }
+}
     </script>
 </body>
