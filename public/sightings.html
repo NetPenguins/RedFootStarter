@@ -43,7 +43,7 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    var database = firebase.database();
+    var database = new firebase.database();
     function writeUserData(pred, coord, time) {
                 firebase.database().ref('predators/' + pred).set({
                     predator: pred,
