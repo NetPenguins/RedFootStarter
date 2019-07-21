@@ -4,7 +4,7 @@ node_js:
 script:
   - echo "Deploying!"
 install:
-  -npm install -g firebase-tools
+  - npm install -g firebase-tools
 after_success:
   - firebase deploy -- token 1/AP8BnePeMSNFIKC66EcMRRQlEa8fky03FepYum7EfW8
   
