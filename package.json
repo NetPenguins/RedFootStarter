@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NetPenguins22/APEXPredAlert#readme",
   "dependencies": {
+    "clientside-require": "^4.7.2",
     "firebase": "^6.3.1"
   }
 }
