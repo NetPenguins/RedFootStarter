@@ -63,7 +63,9 @@
             alert("Geolocation is not supported by this browser.");
         }
     }
-    
+    function escapeRegExp(string){
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    }
     getLocation(function(lat_lng){
         var lt = lat_lng.lat;
         var lg = lat_lng.lng;
@@ -93,6 +95,7 @@
             var today = new Date();
             var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             var pred = window.prompt("Name of Predator: ", "Example: 'Black Bear'");
+            pred = escapeRegExp(pred);
             if (pred.trim() === null || pred.trim() === "" || pred.trim() === "Example: 'Black Bear'"){
                 alert('No Predator Input');
             }else{
