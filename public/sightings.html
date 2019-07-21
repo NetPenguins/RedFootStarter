@@ -26,8 +26,10 @@
     
     <div id="mapid"></div>
      
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
     <script>
         //var firebase = require("firebase/app");
@@ -42,15 +44,17 @@
         messagingSenderId: "911972698521",
         appId: "1:911972698521:web:2fe93fa126f5fde6"
     };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var database = firebase.database;
+    // // Initialize Firebase
+    if(!firebase.apps.length){
+        firebase.initializeApp(firebaseConfig);
+    }
+    var database = firebase.database();
     function writeUserData(pred, coord, time) {
                 firebase.database().ref('predators/' + pred).set({
                     predator: pred,
                     location: coord,
                     time: time
-                });
+                })}
                 
     function getLocation(callback) {
         if (navigator.geolocation) {
@@ -131,6 +135,6 @@
             return full;
         }
     }
-}
+
     </script>
 </body>
