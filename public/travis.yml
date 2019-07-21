@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "4.0"
+script:
+  - echo "Deploying!"
+install:
+  -npm install -g firebase-tools
+after_success:
+  - firebase deploy -- token 1/Cmc3m8eOkrzzb-yoyZhc-f-gUpY2Hr4FV1Te9DcjEvc
+  
