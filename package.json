@@ -1,0 +1,22 @@
+{
+  "name": "apexpredalert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NetPenguins22/APEXPredAlert.git"
+  },
+  "author": "Chad Wilson",
+  "license": "SEE LICENSE IN license.txt",
+  "bugs": {
+    "url": "https://github.com/NetPenguins22/APEXPredAlert/issues"
+  },
+  "homepage": "https://github.com/NetPenguins22/APEXPredAlert#readme",
+  "dependencies": {
+    "firebase": "^6.3.1"
+  }
+}
