@@ -1,140 +1,131 @@
-<head>
-    <title class="h1">Recent Sightings</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link class="img" type="text/css" rel="stylesheet" href="newcss.css">
-</head>
-<body>
-        <div class="mainImage">
-                <img class="mainImage" src="632c0bf2c7c2bd65-APEXLOGO-HORIZ-APEXGREEN-v2.png" alt=""/>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sightings.html">Recent Sightings</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <script type="text/javascript" src="./main.js"></script>
-            <script type="text/javascript" src="index.js"></script>
-            <h1 class="header" align="center">Recent Sightings Map</h1>
-            <h4 align="center">NOTE: If map is not displayed please enable location services</h4>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-    crossorigin=""></script>
-    
-    <div id="mapid"></div>
-     
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-
-    <script>
-        //var firebase = require("firebase/app");
-        //import * as firebase from "firebase/app";
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyBnXj0CmCIAvbLlZFejIu7n7gFIuFghk80",
-        authDomain: "apexalertengine.firebaseapp.com",
-        databaseURL: "https://apexalertengine.firebaseio.com",
-        projectId: "apexalertengine",
-        storageBucket: "",
-        messagingSenderId: "911972698521",
-        appId: "1:911972698521:web:2fe93fa126f5fde6"
-    };
-    // // Initialize Firebase
-    if(!firebase.apps.length){
-        firebase.initializeApp(firebaseConfig);
-    }
-    var database = firebase.database();
-    function writeUserData(pred, coord, time) {
-                firebase.database().ref('predators/' + pred).set({
-                    predator: pred,
-                    location: coord,
-                    time: time
-                })}
-                
-    function getLocation(callback) {
-        if (navigator.geolocation) {
-            var lat_lng = navigator.geolocation.getCurrentPosition(function(position){
-            console.log(position);
-            var user_position = {};
-            user_position.lat = position.coords.latitude; 
-            user_position.lng = position.coords.longitude; 
-            callback(user_position);
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Sightings Map</title>
+		<meta name="description" content="3135 Project">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./style/main.css">
+        <link 
+            rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+        <script
+            src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin="">
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+        <script src="scripts/utilities.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("./elements/header.html"); 
+                $("#footer").load("./elements/footer.html"); 
             });
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
-    function escapeRegExp(string){
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-    }
-    getLocation(function(lat_lng){
-        var lt = lat_lng.lat;
-        var lg = lat_lng.lng;
-        if(!navigator.geolocation.getCurrentPosition) {
-            aler("Use of Location is set to off. Using default...");
-            lt = 36.7783;
-            lg = 119.4179;
-        }
-        var mymap = L.map('mapid').setView([lt, lg], 14);
-            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 20,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoiY3dpbHMxOTIiLCJhIjoiY2p5Ym5ocTM4MDhubDNrb2NyNThjZjd6OCJ9.dlN48W8s4lnsCmLYCBhdTw'
-        }).addTo(mymap);
-       
-        mymap.on('click', function(e){
-        var coord = e.latlng;
-        var lt = coord.lat;
-        var lg = coord.lng;
-        var position = {};
-        position.lat = lt;
-        position.lng = lg;
-        cir(lt, lg);
-        });
-        function cir(lt, lg){
-            var today = new Date();
-            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            var pred = window.prompt("Name of Predator: ", "Example: 'Black Bear'");
-            pred = escapeRegExp(pred);
-            if (pred.trim() === null || pred.trim() === "" || pred.trim() === "Example: 'Black Bear'"){
-                alert('No Predator Input');
-            }else{
-                var circle = L.circle([lt, lg], {
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 0.5,
-                    radius: 600
-                }).addTo(mymap);
-                circle.bindPopup("Predator Spotted: " + pred);
-                writeUserData(pred, (lt + ", " + lg), (date + " "+ getTimezoneName()));
+        </script> 
+        <script src="scripts/map.js"></script>
+        <script src="scripts/dataStream.js"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <!-- Create map placeholder -->
+        <div id="mapid"></div>
+        <!-- create modal place holder with container for items -->
+        <div class="modal is-hidden">
+            <div class="modal-backgroud"></div>
+            <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="has-text-centered is-size-3">What have you spotted?</p>    
+            </header>
+            <!--  field is-grouped -->
+            <div class="modal-content">
+                <div id="Container"></div>
+            </div>
+        </div>
+            <button class="modal-close is-large" id="closeButton" aria-label="close"></button>
+        </div>
+        <!-- create agreement modal  -->
+        <div class="modal is-hidden" id="messageModal">
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Usage</p>
+              </header>
+            <div class="modal-card-body">
+                <strong class="is-size-5">On Mobile</strong><br>
+              To add a new sighting press and hold the location on the map and select from the choices provided.
+                <br><strong class="is-size-5">On Desktop</strong><br>
+              To add a new sighting right click on the location and select from the choices provieded.
+            </div>
+            <div class="modal-card-body">
+                <strong class="is-size-4 has-text-centered">Terms Of Use</strong><br>
+                By clicking agree below you agree that the developers are not responsible for any misinterpretation of data on this map. You further agree as the user
+                that the developers are not responsible for any injury or damage to property cause in part or in full by misrepresented data or the misguided or misuse of 
+                said data. 
+            </div>
+            <footer class="modal-card-footer">
+                <button class="button is-success" id="closeMessage" onclick="agreed(); toggleMessage()">Agree</button>
+                <!-- if user does not agree take them back to the home page -->
+                <div class="footim"></div>
+                <a href="./index.html" class="button is-warning">Disagree</a>
+            </footer>
+            </div>
+        </div>
+        <!-- This is where we create our Modal in the event the user is not logged in. -->
+        <div class="modal is-hidden" id="credsModal">
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Login Required</p>
+              </header>
+            <div class="modal-card-body">
+                <strong>You must login to interact with the map</strong>
+            </div>
+            <footer class="modal-card-footer">
+                <button class="button is-success" id="needCreds" onclick="signin()">Login</button>
+                <!-- if user does not agree take them back to the home page -->
+                <div class="footim"></div>
+                <!-- INPUT noCreds() to handle case where they want to view but not interact
+                    This should change the maps onContextMenu event to prompt for login  -->
+                <!-- <a href="./index.html" class="button is-warning">No Thanks</a> -->
+                <button class="button is-warning" id="noThanks" onclick="noThanks()">No Thanks</button>
+            </footer>
+            </div>
+        </div>
+        <div id="footer"></div>
+        <script>
+            var message = document.getElementById("messageModal");
+            var closeMesg = document.getElementById("closeMessage");
+            function toggleMessage(){
+                message.classList.toggle("is-active");
+                message.classList.toggle("is-hidden");
+                $('html').toggleClass('is-clipped'); //ensure we scroll lock the background
             }
-        }
-    });
-    function getTimezoneName() {
-        const today = new Date();
-        const short = today.toLocaleDateString(undefined);
-        const full = today.toLocaleDateString(undefined, { timeZoneName: 'long' });
-
-        // Trying to remove date from the string in a locale-agnostic way
-        const shortIndex = full.indexOf(short);
-        if (shortIndex >= 0) {
-            const trimmed = full.substring(0, shortIndex) + full.substring(shortIndex + short.length);
-            
-            // by this time `trimmed` should be the timezone's name with some punctuation -
-            // trim it from both sides
-            return trimmed.replace(/^[\s,.\-:;]+|[\s,.\-:;]+$/g, '');
-
-        } else {
-            // in some magic case when short representation of date is not present in the long one, just return the long one as a fallback, since it should contain the timezone's name
-            return full;
-        }
-    }
-
-    </script>
-</body>
+            //Below we will create the functionality for the predList Modal 
+            //When the user longpresses the map the modal will be displayed.
+            //when they make a choice OR press "x" OR click anywhere outside the choices 
+            //the modal will close
+            var modal = document.querySelector(".modal");
+            var closebutton = document.querySelector(".modal-close");
+            var toggleModal = function toggleModal() {
+                modal.classList.toggle("is-active");
+                modal.classList.toggle("is-hidden");
+                $('html').toggleClass('is-clipped');
+            }
+            // allows user to click anywhere outside of modal to close
+            function windowOnClick(event) {
+                if (event.target === modal) {
+                    toggleModal();
+                }
+            }
+            // events for handling object interactions
+            $('.modal-close').click(toggleModal);
+            window.addEventListener("click", windowOnClick);
+        </script>
+    </body>
+</html>

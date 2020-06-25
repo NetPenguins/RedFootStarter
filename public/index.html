@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-    
-    <head>
-        <title class="h1">APEX Predator Alert Engine</title>
+<html lang="en">
+	<head>
+		<title>Apex Predator Alert</title>
+		<meta name="description" content="3135 Project">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link class="img" type="text/css" rel="stylesheet" href="newcss.css">
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="./style/main.css">
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+        <script> 
+            $(function(){
+                $("#header").load("./elements/header.html"); 
+                $("#footer").load("./elements/footer.html"); 
+            });
+        </script> 
+        <script src="scripts/utilities.js"></script>
+        <!-- <script defer src="scripts/signin.js"></script> -->
+    </head> 
     <body>
-        <div class="mainImage">
-            <img class="mainImage" src="632c0bf2c7c2bd65-APEXLOGO-HORIZ-APEXGREEN-v2.png" alt=""/>
-        </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sightings.html">Recent Sightings</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-        <script type="text/javascript" src="./main.js"></script>
-        <script type="text/javascript" src="index.js"></script>
-        <h1 class="header" align="center">Your Reporting Destination For All Local APEX Predator Sightings</h1>
+        <div id="header"></div>
+        <!-- input parallax beneath header -->
+        <div class="parallax"></div>
+        <main>  
+            <!-- create tiles to house site map  -->
+            <!-- when in mobile viewing this will collapse to a single
+            column with tiles inline centered -->
+            <div id="tileSection">
+                <!-- no image elements will be displayed in a single column  -->
+                <div class="tile is-ancestor">
+                    <div class="tile is-4 is-vertical is-parent">
+                        <a href="./about.html" class="tile is-child box">
+                            <p class="title has-text-centered">Our Mission</p>
+                        </a> 
+                        <a href="./predatorlist.html" class="tile is-child box">
+                            <p class="title has-text-centered">Predator Info</p>
+                        </a> 
+                    </div>
+                    <!-- image element will be displayed as two columns -->
+                    <div class="tile is-parent">
+                        <a href="./sightings.html" class="tile is-child box">
+                            <h3 class="title has-text-centered">Recent Sightings</h3>
+                            <img src="./style/map.jpg" alt="mapimage">
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="footer"></div>
     </body>
-    
+</html>

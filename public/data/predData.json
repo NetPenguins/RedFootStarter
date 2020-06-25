@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Badger",
+        "link":"https://en.wikipedia.org/wiki/Badger",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Badger-badger.jpg/220px-Badger-badger.jpg",
+        "des": "Badgers are short-legged omnivores in the families Mustelidae (which also includes the otters, polecats, weasels, and ferrets), and Mephitidae (which also includes the skunks)."
+    },
+    {
+        "name": "Black Bear",
+        "link":"https://en.wikipedia.org/wiki/American_black_bear",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/01_Schwarzbär.jpg/220px-01_Schwarzbär.jpg",
+        "des":"The American black bear (Ursus americanus, previously known as Euarctos americanus) is a medium-sized bear native to North America. It is the continent's smallest and most widely distributed bear species."
+    },
+    {
+        "name": "Brown Bear",
+        "link":"https://en.wikipedia.org/wiki/Brown_bear",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Kamchatka_Brown_Bear_near_Dvuhyurtochnoe_on_2015-07-23.jpg/220px-Kamchatka_Brown_Bear_near_Dvuhyurtochnoe_on_2015-07-23.jpg",
+        "des":"The brown bear (Ursus arctos) is a bear species found across Eurasia and North America.[1][2] In North America, the populations of brown bears are called grizzly bears."
+    },
+    {
+        "name": "Coyote",
+        "link":"https://en.wikipedia.org/wiki/Coyote",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/2009-Coyote-Yosemite.jpg/220px-2009-Coyote-Yosemite.jpg",
+        "des":"The coyote (Canis latrans) is a species of canine native to North America. It is smaller than its close relative, the gray wolf, and slightly smaller than the closely related eastern wolf and red wolf. "
+    },
+    {
+        "name": "Cougar",
+        "link":"https://en.wikipedia.org/wiki/Cougar",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Mountain_Lion_in_Glacier_National_Park.jpg/220px-Mountain_Lion_in_Glacier_National_Park.jpg",
+        "des":"The cougar (Puma concolor) is a large felid of the subfamily Felinae. It is native to the Americas.[1] Its range spans from the Canadian Yukon to the southern Andes in South America, and is the widest of any large wild terrestrial mammal in the Western Hemisphere. "
+    },
+    {
+        "name": "Eagle",
+        "link":"https://en.wikipedia.org/wiki/Eagle",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Águila_calva.jpg/220px-Águila_calva.jpg",
+        "des":"Eagle is the common name for many large birds of prey of the familia Accipitridae. Eagles belong to several groups of genera, not all of which are closely related. Most of the 60 species of eagle are from Eurasia and Africa.[1]"
+    },
+    {
+        "name": "Grizzly Bear",
+        "link":"https://en.wikipedia.org/wiki/Grizzly_bear",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/GrizzlyBearJeanBeaufort.jpg/220px-GrizzlyBearJeanBeaufort.jpg",
+        "des":"The grizzly bear (Ursus arctos horribilis), also known as the North American brown bear or simply grizzly, is a large population or subspecies[1] of the brown bear inhabiting North America."
+    },
+    {
+        "name": "Hawk",
+        "link":"https://en.wikipedia.org/wiki/Hawk",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Red-tailed_Hawk.jpg/220px-Red-tailed_Hawk.jpg",
+        "des":"Hawks are a group of medium-sized diurnal birds of prey of the family Accipitridae. Hawks are widely distributed and vary greatly in size."
+    },
+    {
+        "name": "Lynx",
+        "link":"https://en.wikipedia.org/wiki/Lynx",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Lynx_lynx_poing.jpg/220px-Lynx_lynx_poing.jpg",
+        "des":"A lynx (/lɪŋks/;[2] plural lynx or lynxes[3]) is any of the four species (Canada lynx, Iberian lynx, Eurasian lynx, bobcat) within the medium-sized wild cat genus Lynx. "
+    },
+    {
+        "name": "Owl",
+        "link":"https://en.wikipedia.org/wiki/Owl",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Eastern_Barn_Owl_%28Tyto_javanica_stertens%29%2C_Raigad%2C_Maharashtra.jpg/220px-Eastern_Barn_Owl_%28Tyto_javanica_stertens%29%2C_Raigad%2C_Maharashtra.jpg",
+        "des":"Owls are birds from the order Strigiformes, which includes over 200 species of mostly solitary and nocturnal birds of prey typified by an upright stance, a large, broad head, binocular vision, binaural hearing, sharp talons, and feathers adapted for silent flight."
+    },
+    {
+        "name": "Wolf",
+        "link":"https://en.wikipedia.org/wiki/Wolf",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kolmården_Wolf.jpg/220px-Kolmården_Wolf.jpg",
+        "des":"The wolf (Canis lupus), also known as the gray wolf or grey wolf, is a large canine native to Eurasia and North America. It is the largest extant member of Canidae, males averaging 40 kg (88 lb) and females 37 kg (82 lb)."
+    }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Header</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <link rel="stylesheet" type="text/css" href="./style/main.css">
+    </head>
+    <!-- All pages will inherit Bulma style sheets from header and footer -->
+    <!-- create navebar for desktop/mobile.... if mobile we will use burger styling
+    if desktop or lg tablet we will use inline navbar -->
+    <nav class="navbar has-navbar-fixed-top" aria-label="main navigation"> 
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>      
+        <div class="navbar-menu" id="navMenu">
+            <a class="navbar-item button" href="./index.html">
+                Home
+            </a>
+            <div class="horiz-divider"></div>
+            <a class="navbar-item button" href="./predatorlist.html">
+                Predator Info
+            </a>
+            <div class="horiz-divider"></div>
+            <a class="navbar-item button" href="./sightings.html">
+                Sightings Map
+            </a>
+            <div class="horiz-divider"></div>
+            <a class="navbar-item button" href="./about.html">
+                About
+            </a>
+            <div class="horiz-divider"></div>
+            <div class="navbar-end">
+                <a class="navbar-item button" id="signedin" onclick="signin()">
+                    Sign In
+                </a>
+                <figure id="userIcon" class="image is-48x48"></figure>
+            </div>
+        </div>
+    </nav> 
+    <script>
+        //Actions for burger 
+        $(document).ready(function(){
+            $(".navbar-burger").click(function(){
+                //when burger we will display with is-active when the x is clicked
+                //the is-active is removed
+                $(".navbar-burger").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+                $('html').toggleClass("is-clipped");
+            });
+        });
+    </script>
+    <br>
+    <br>
+    <script defer src="scripts/signin.js"></script>
+</html>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>About Page</title>
+		<title>Predator Information</title>
 		<meta name="description" content="3135 Project">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./style/main.css">
         <script
             src="https://code.jquery.com/jquery-3.3.1.js"
@@ -13,11 +12,9 @@
             crossorigin="anonymous">
         </script>
         <script> 
-            //include the header and footer
             $(function(){
-                $("#header").load("./elements/header.html"); 
-                $("#footer").load("./elements/footer.html"); 
-                $("#info").load("./elements/info.html");
+            $("#header").load("./elements/header.html"); 
+            $("#footer").load("./elements/footer.html"); 
             });
         </script> 
         <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
@@ -27,12 +24,17 @@
         <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
         <script src="scripts/utilities.js"></script>
+        <script src="scripts/predList.js"></script>
+        <!-- <script defer src="scripts/signin.js"></script> -->
+        
     </head>
     <body>
+        <!-- we will direct our control to predList.js upon load -->
         <div id="header"></div>
-        <!-- About place holder for about page html  -->
-        <main class="about">
-        <div id="info"></div>
+        <main>
+            <!-- This is placeholder element that will house all objects
+            created dynamically by predList.js -->
+        <div id="Container"></div> 
         </main>
         <div id="footer"></div>
     </body>

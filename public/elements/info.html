@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Info</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> -->
+        <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+        <!-- <link rel="stylesheet" type="text/css" href="./style/main.css"> -->
+    </head>
+<div class="card">
+    <!-- card to house the basic mission statement/purpose of this site -->
+    <h2 class="title">Our Mission</h2>
+    <div class="card-content">
+        <p>
+            <strong>Apex Predator Alert</strong> was created to assist in the reporting and identification 
+            of wildlife that can pose a threat to life and property. We aim to educate the 
+            public on the dangers of certain predators in the wild and establish a healthy 
+            understanding as to why such wildlife might attack. The most important thing to 
+            remember is that we have encroached on their land torn down <strong>their</strong> homes and 
+            driven them out of <strong>their</strong> habitats in which they have grown and evolved over 
+            thousand/millions of years. This devastating action by humanity has been further 
+            exasperated as we continue to develop our communities in the ashes of what was 
+            rightfully <strong>theirs</strong>. When we find a mountain lion in our back yard it is not 
+            because they want to hurt you or your pets, it is because we have built our 
+            homes on top of their previous home. We have put our resources over theirs 
+            and they are simply trying to survive. When they feel threatened, they will defend 
+            themselves the same way we defend ourselves. Please do not fear the wildlife you 
+            have built your life around but rather embrace the opportunity to live alongside 
+            them providing them the opportunity to grow and prosper in a world that is unlike 
+            their previously known world. Use this system to establish a social network of 
+            understanding, if your neighbor reports they saw a bear in the area simply make 
+            the accommodation to be more cautious about your animals and yourself routines 
+            rather than hunt down an innocent animal simply trying to live on the land we have taken from them. 
+        </p>
+    </div>
+</div>
+<br>
+<!-- The following HTML uses FORMSPREE.io to redirect forms to my school email account
+The design is utilizing Bulma forms styling  -->
+<div class="form-container">
+    <h1 class="is-size-1 has-text-weight-bold has-text-dark">Let me know what you think!</h1>
+    <br>
+    <br>
+    <form method="POST" name="contact_form" action="https://formspree.io/xoqkdala">
+        <!-- Name and email fields -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+            <label class="label">From</label>
+            </div>
+            <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded has-icons-left">
+                <input class="input" type="text" required name="name" placeholder="Name">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                <input class="input" name="_replyto" required type="email" placeholder="lukeskywalker@theforce.com">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                </p>
+            </div>
+            </div>
+        </div>
+        <!-- Subject object  -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+            <label class="label">Subject</label>
+            </div>
+            <div class="field-body">
+            <div class="field">
+                <div class="control">
+                <input class="input" name="_subject" required type="text" placeholder="e.g. Partnership opportunity">
+            </div>
+            </div>
+            </div>
+        </div>
+        <!-- Main message -->
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+            <label class="label">Feedback</label>
+            </div>
+            <div class="field-body">
+            <div class="field">
+                <div class="control">
+                <textarea class="textarea" name="message" required placeholder="Explain how we can help you"></textarea>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <div class="field is-horizontal">
+            <div class="field-label">
+            <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+            <div class="field">
+                <div class="control">
+                <input type="submit" class="button is-primary" value="Send Message">
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+</html>
